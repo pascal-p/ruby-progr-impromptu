@@ -1,7 +1,7 @@
 # LcDoublet
 
 LC doublet or word ladder implementation using a BFS strategy.
-  
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,15 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-```require 'lc_doublet'
+```ruby
+require 'lc_doublet'
 
 def main
-  dict = "file_dict.txt"  
+  dict = "file_dict.txt"
   lc = LcDoublet::Core.new(file)
 
   s_word = "cat"
   e_word = "dog
-  
+
   transition = lc_doublet.solve(s_word, e_word)
   if transition.size > 0
     STDOUT.puts " from: #{sword} to #{e_word} - path: #{transition.join(' --> ')}"
@@ -36,7 +37,7 @@ def main
     STDOUT.puts " No transition found from: #{sword} to #{e_word}"
   end
 end
-```     
+```
 
 ## Development
 
