@@ -28,7 +28,7 @@ def main
   lc = LcDoublet::Core.new(file)
 
   s_word = "cat"
-  e_word = "dog
+  e_word = "dog"
 
   transition = lc_doublet.solve(s_word, e_word)
   if transition.size > 0
