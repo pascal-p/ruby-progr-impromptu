@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{LC doublet or word ladder implementation in Ruby.}
   spec.description   = %q{LC doublet or word ladder implementation in Ruby, using BFS strategy.}
   spec.homepage      = "https://github.com/pascal-p"
+  spec.license       = 'BSD-2-Clause'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -26,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.11.2"
-  spec.add_development_dependency "rake", "~> 11.1.2"
+  spec.add_development_dependency "bundler", '~> 1.11', '>= 1.11.2'
+  spec.add_development_dependency "rake", '~> 11.1', '>= 11.1.2'
   spec.add_development_dependency 'rspec-rails', '~> 3.4', '>= 3.4.2'
 end

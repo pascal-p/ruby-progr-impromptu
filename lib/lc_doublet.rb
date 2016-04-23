@@ -1,6 +1,6 @@
 require "lc_doublet/version"
 #
-require 'lc_doublet/utils'
+require 'utils/dict'
 require 'lc_doublet/core'
 
 module LcDoublet

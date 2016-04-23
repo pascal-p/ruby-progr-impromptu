@@ -1,9 +1,7 @@
 # LcDoublet
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lc_doublet`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+LC doublet or word ladder implementation using a BFS strategy.
+  
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```require 'lc_doublet'
+
+def main
+  dict = "file_dict.txt"  
+  lc = LcDoublet::Core.new(file)
+
+  s_word = "cat"
+  e_word = "dog
+  
+  transition = lc_doublet.solve(s_word, e_word)
+  if transition.size > 0
+    STDOUT.puts " from: #{sword} to #{e_word} - path: #{transition.join(' --> ')}"
+  else
+    STDOUT.puts " No transition found from: #{sword} to #{e_word}"
+  end
+end
+```     
 
 ## Development
 
@@ -32,5 +46,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/lc_doublet.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pascal-p/lc_doublet.
 
+
+## license
+BSD-2-Clause
