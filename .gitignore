@@ -7,5 +7,6 @@
 /pkg/
 /spec/reports/
 /tmp/
+tmp.txt
 /resources
 lc_doublet-*.gem

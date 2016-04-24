@@ -11,14 +11,14 @@ module LcDoublet
         #
         self
       end
-      
+
       def to_a
         [self.value, self.f, self.date]
       end
-      
+
       def to_h
         {value: self.value, f: self.f, date: self.date}
-      end      
+      end
     end
 
     def solve(s_word, t_word)
@@ -26,8 +26,8 @@ module LcDoublet
       sol = _a_star(s_word, t_word)
       # retracing the path
       _get_path(sol, t_word)
-    end   
-    
+    end
+
     private
     def _a_star(start, goal,
                 g = ->(prev) {prev + 1},
@@ -39,7 +39,7 @@ module LcDoublet
       h_start = Utils::Dict::SIGNED_MAX # does not matter yet
       f_start = g_start + h_start            # == Utils::Dict::SIGNED_MAX
       open_list = [ Node.new(start, Time.now, f_start, g_start) ]  # node is a Struct
-      node_path = {}      
+      node_path = {}
       #
       loop do
         cnode = _find_lowest_f_node(open_list)
@@ -69,7 +69,7 @@ module LcDoublet
         end
       end
     end # a_star
-    
+
     def _find_lowest_f_node(open_list)
       init_node = Node.new('_', Time.now, Utils::Dict::SIGNED_MAX, 0)
       #
@@ -89,7 +89,17 @@ module LcDoublet
       n
     end
 
-    
+    def _include?(list, value)
+      return nil if list.empty?
+      ##
+      list.find {|node| node.value == value}
+    end
+
+    def delete(list, node)
+      ix = list.find_index {|n| n.value == node.value}
+      list.delete_at(ix)
+    end
+
   end
 
 end

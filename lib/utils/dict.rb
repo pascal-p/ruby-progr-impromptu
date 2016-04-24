@@ -6,8 +6,10 @@ module Utils
   module Dict
     extend self
 
+    attr_reader :content
+
     def setup(file)
-      @content = []
+      @content = {}
       load_(file)
       self
     end
@@ -15,41 +17,35 @@ module Utils
     def load_(file)
       File.open(file, "r:ISO-8859-15:UTF-8") do |fh|
         fh.each_line do |line|
-          _line = line.downcase.chomp
-          next if _line.length < 2 || _line.length > 5
-          @content << _line
+          word = line.chomp
+          next if word.length < 2 || word.length > 5 ||
+                  word =~ /'/ ||
+                  word =~ /[^abcdefghijklmnopqrstuvwxyz]+/i
+          @content.merge!(word.downcase => 1)
         end
       end
-      STDOUT.print ">> Loaded dict in memory - #{@content.size} entries\n" if $VERBOSE
-      @content.sort!
+      STDOUT.print ">> Loaded dict in memory - #{@content.keys.size} entries\n" if $VERBOSE
     #
     rescue IOError => e
-      @content = []  # reset
+      @content = {}  # reset
       STDERR.print "[!] intercepted #{e.message}"
       raise e
       #
     end
 
     def include?(word)
-      @content.include?(word)
+      @content.has_key?(word)
     end
 
     def empty?
-      @content.size == 0
+      @content.keys.size == 0
     end
 
     def size
-      @content.size
+      @content.keys.size
     end
 
-    # def to_hsh(word)
-    #   word.split('').inject({}) {|h, l| h.has_key?(l.to_sym) ? h.merge({l.to_sym => h[l.to_sym] + 1}) : h.merge({l.to_sym => 1})}
-    # end
-
-    # def count(hsh)
-    #   hsh.inject(0) {|s, (_, v)| s += v}
-    # end
-
+    ##
     def inter(a, b)
       ca = a.clone             # shallow copy
       b.inject([]) do |r, k|
@@ -64,6 +60,7 @@ module Utils
       end
     end
 
+    ##
     def _calc
       machine_bytes = ['foo'].pack('p').size
       8 * machine_bytes # == machine_bits

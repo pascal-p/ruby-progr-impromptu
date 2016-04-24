@@ -17,14 +17,16 @@ module LcDoublet
         s_word: 'milk',
        t_word: 'wine',
        trans: [
-                ["milk", "mink", "wink", "wine"],
+                ["milk", "mile", "mine", "wine"]
+#                ["milk", "mink", "wink", "wine"],
               ]
       },
       {
         s_word: 'head',
        t_word: 'tail',
        trans: [
-                ["head", "tead", "teal", "taal", "tail"]
+                ["head", "heal", "heil", "hail", "tail"]
+#                ["head", "tead", "teal", "taal", "tail"]
 #                ["head", "read", "real", "reil", "rail", "tail"],
 #                ["head", "heal", "teal", "tell", "tall", "tail"]
               ]
@@ -33,7 +35,8 @@ module LcDoublet
         s_word: 'cold',
          t_word: 'warm',
        trans: [
-                ["cold", "wold", "wald", "ward", "warm"]
+                ["cold", "cord", "card", "ward", "warm"]
+#                ["cold", "wold", "wald", "ward", "warm"]
 #                ["cold", "wold", "word", "ward", "warm"],
 #                ['cold', 'cord', 'card', 'ward', 'warm' ],
               ]
@@ -42,7 +45,8 @@ module LcDoublet
         s_word: 'ape',
        t_word: 'man',
        trans: [
-                ["ape", "ope", "ops", "oas", "mas", "man"]
+                ["ape", "abe", "aba", "aaa", "maa", "man"]
+#                ["ape", "ope", "ops", "oas", "mas", "man"]
 #                [ 'ape', 'apt', 'opt', 'oat', 'mat', 'man' ],
               ]
       },
@@ -50,7 +54,8 @@ module LcDoublet
         s_word: 'door',
        t_word: 'lock',
        trans: [
-                ["door", "loor", "look", "lock"]
+                ["door", "dook", "dock", "lock"]
+#                ["door", "loor", "look", "lock"]
 #                ["door", "boor", "book", "look", "lock"],
               ]
       },
@@ -58,7 +63,8 @@ module LcDoublet
         s_word: 'sleep',
        t_word: 'dream',
        trans: [
-                ["sleep", "bleep", "bleed", "breed", "dreed", "dread", "dream"]
+                ["sleep", "bleep", "bleed", "breed", "bread", "bream", "dream"]
+#                ["sleep", "bleep", "bleed", "breed", "dreed", "dread", "dream"]
 #                [ 'sleep', 'bleep', 'bleed', 'breed', 'bread', 'dread', 'dream'],
               ]
             },
