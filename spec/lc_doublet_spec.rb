@@ -81,8 +81,27 @@ module LcDoublet
                 ["word", "wore", "gore", "gere", "gene"]
 #                ['word', 'wore', 'gore', 'gone', 'gene']
               ]
+      },
+      {
+        s_word: 'angry',
+       t_word: 'happy',
+       trans: [ [] ], # Not found with wordlist dictionnary
+      },
+      {
+        s_word: 'novel',
+       t_word: 'story',
+       trans: [ ["novel", "covel", "coved", "cooed", "cooee", "cooke", "choke", "chore", "shore", "store", "story"] ],
+      },
+      {
+        s_word: 'evil',
+       t_word: 'nice',
+       trans: [ [ "evil", "emil", "emir", "smir", "sair", "lair", "laie", "lace", "lice", "nice" ] ],
+      },
+      {
+        s_word: 'small',
+       t_word: 'sized',
+       trans: [ [ "small", "shall", "shill", "shiel", "shied", "shred", "sired", "sized" ] ],
       }
-
     ]
 
     config.before(:all) do
@@ -114,9 +133,11 @@ module LcDoublet
         end
 
         it "from #{s_word} to #{t_word}" do
-          sol = with_timing_do("Lookup for the shortest transition between #{s_word} and #{t_word}") { @lc_doublet.solve(s_word, t_word) }
+          sol = with_timing_do("Lookup for the shortest transition between #{s_word} and #{t_word}") {
+            @lc_doublet.solve(s_word, t_word)
+          }
           STDOUT.puts "\t (actual)   transition: #{sol.inspect}"
-          STDOUT.puts "\t (expected) transition: #{sol.inspect}"
+          STDOUT.puts "\t (expected) transition: #{hsh[:trans].first.inspect}"
           expect(sol).to eq(hsh[:trans].first) # expect(sol).to satisfy {|a| hsh[:trans].include?(a)}
         end
       end

@@ -9,8 +9,7 @@ module LcDoublet
     def solve(s_word, t_word)
       raise "Empty dictionary" if @@dict.empty?
       sol = _bfs(s_word, t_word)
-      # retracing the path
-      sol == [] ? [] : _get_path(sol, t_word)
+      sol == [] ? [] : _get_path(sol, t_word)  # retracing the path
     end
 
     class << self
@@ -99,12 +98,10 @@ module LcDoublet
       ds = Q.new(Queue.new, {s_word => true}, {})
       ds.q_enq(s_word)
       #
-      # ix = 0
       while ds.q_size > 0
         c_word = ds.q_deq
         break if c_word == e_word
         _process(ds, c_word)
-        # ix += 1
       end
       ds.q_size == 0 && c_word != e_word ? [] : ds.pred
     end

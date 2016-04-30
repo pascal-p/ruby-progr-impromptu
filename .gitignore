@@ -10,3 +10,4 @@
 tmp.txt
 /resources
 lc_doublet-*.gem
+/lib/lc_doublet/core_trace.rb
